@@ -1,0 +1,111 @@
+﻿@model Centro.Models.Profesionales
+@{
+    ViewData["Title"] = "Crear Profesional";
+}
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Profesionales/Create.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Crear Profesional</h1>
+        <hr />
+
+        <!-- Formulario -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="Create" class="shadow p-4 rounded" style="background-color: #ffffff;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Rut -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Rut" class="form-label">RUT</label>
+                        <input asp-for="Rut" class="form-control" />
+                        <span asp-validation-for="Rut" class="text-danger"></span>
+                    </div>
+
+                    <!-- Imagen -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Imagen" class="form-label">Imagen</label>
+                        <input asp-for="Imagen" class="form-control" />
+                        <span asp-validation-for="Imagen" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nombre -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Especialidad -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Especialidad" class="form-label">Especialidad</label>
+                        <select name="EspecialidadId" id="EspecialidadId" class="form-control">
+                            @if (ViewBag.Categorias != null)
+                            {
+                                foreach (var categoria in ViewBag.Categorias)
+                                {
+                                    <option value="@categoria.IdEspecialidad">@categoria.Nombre</option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="">No hay categorías disponibles</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Sede Egreso -->
+                    <div class="form-group mb-3">
+                        <label asp-for="SedeEgreso" class="form-label">Sede de Egreso</label>
+                        <input asp-for="SedeEgreso" class="form-control" />
+                        <span asp-validation-for="SedeEgreso" class="text-danger"></span>
+                    </div>
+
+                    <!-- Diplomados -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Diplomados" class="form-label">Diplomados</label>
+                        <input asp-for="Diplomados" class="form-control" />
+                        <span asp-validation-for="Diplomados" class="text-danger"></span>
+                    </div>
+
+                    <!-- Latitud -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Latitud" class="form-label">Latitud</label>
+                        <input asp-for="Latitud" class="form-control" />
+                        <span asp-validation-for="Latitud" class="text-danger"></span>
+                    </div>
+
+                    <!-- Longitud -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Longitud" class="form-label">Longitud</label>
+                        <input asp-for="Longitud" class="form-control" />
+                        <span asp-validation-for="Longitud" class="text-danger"></span>
+                    </div>
+
+                    <!-- Botón Crear -->
+                    <div class="form-group text-center mt-4">
+                        <input type="submit" value="Crear" class="btn btn-success" style="font-family: 'Poppins', sans-serif;" />
+                    </div>
+                </form>
+
+                <!-- Botón Volver -->
+                <div class="text-center mt-4">
+                    <a asp-action="Index" class="btn btn-secondary" style="font-family: 'Poppins', sans-serif;">Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Centro.Models.Citas>
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Citas/Citas.css" asp-append-version="true" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+
+        <!-- Botón de Volver al Mapa -->
+        <a href="/Administrador/Index" class="back-to-map-icon">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
+
+        <h1 class="text-center">Citas</h1>
+
+        @if (TempData["Mensaje"] != null)
+        {
+            <script>
+                alert('@TempData["Mensaje"]');
+            </script>
+        }
+
+        <!-- Tabla -->
+        <table class="table table-bordered table-hover text-center shadow-sm">
+            <thead>
+                <tr>
+                    <th>Rut</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Especialidad</th>
+                    <th>Profesional</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Rut)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Correo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                        <td>@item.Fecha.ToString("dd/MM/yyyy")</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hora)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Especialidad.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Profesionales.Nombre)</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="btn btn-success btn-sm" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Centro.Models.Profesionales>
+
+@{
+}
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Profesionales/Index.css" asp-append-version="true" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+
+        <!-- Botón de Volver al Mapa -->
+        <a href="/Administrador/Index" class="back-to-map-icon">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
+
+        <h1 class="text-center">Profesionales</h1>
+
+        @if (TempData["Mensaje"] != null)
+        {
+            <script>
+                alert('@TempData["Mensaje"]');
+            </script>
+        }
+
+        <!-- Botón Crear Nuevo -->
+        <div class="text-center mb-3">
+            <a class="btn btn-success" asp-action="Create">Crear Profesional</a>
+        </div>
+
+        <!-- Tabla -->
+        <table class="table table-bordered table-hover text-center shadow-sm">
+            <thead>
+                <tr>
+                    <th>Rut</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Especialidad</th>
+                    <th>Horas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Rut)</td>
+                        <td><img src="@item.Imagen" alt="Imagen de Profesional" class="rounded"></td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Especialidad.Nombre)</td>
+                        <td>
+                            <a class="btn btn-warning btn-sm cargarHorasLink" data-id="@item.Id">Cargar</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-sm" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.cargarHorasLink').click(function (e) {
+                e.preventDefault();
+                var idProfesionales = $(this).data('id');
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("CargarHoras", "Citas")',
+                    data: { idProfesionales: idProfesionales },
+                    success: function (data) {
+                        alert('Horas cargadas con éxito');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (jqXHR.status == 400) {
+                            alert('Las citas ya están creadas.');
+                        } else {
+                            alert('Error al cargar las horas');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>

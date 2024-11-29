@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" />
+<link rel="stylesheet" href="~/css/Auth/Login.css" asp-append-version="true" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Botón de Volver al Mapa -->
+<a href="/Home/Index" class="back-to-map-icon">
+    <i class="bi bi-arrow-left-circle-fill"></i>
+</a>
+
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="row form-container shadow" style="width: 100%; max-width: 900px; border-radius: 10px; overflow: hidden;">
+        <!-- Sección de la imagen decorativa -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center" style="background-color: #F2F3FF;">
+            <img src="~/im/acceso.png" alt="Logo" class="img-fluid" style="max-width: 70%; border-radius: 10px;">
+        </div>
+
+        <!-- Sección del formulario -->
+        <div class="col-md-6 p-5" style="background-color: #ffffff;">
+            <h1 class="text-center mb-4" style="font-family: 'Poppins', sans-serif; font-size: 2rem; color: #3a86ff;">Acceso Administrativos</h1>
+
+            <form asp-action="Login" asp-controller="Auth" method="post">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="EmailForm" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #3a3a3a;">Correo</label>
+                    <input type="email" name="EmailForm" id="EmailForm" class="form-control" placeholder="Ingrese su correo" style="padding: 10px; font-size: 1rem; border-radius: 5px;" required />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="pass" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #3a3a3a;">Contraseña</label>
+                    <input type="password" id="pass" class="form-control" name="pass" placeholder="Ingrese su contraseña" style="padding: 10px; font-size: 1rem; border-radius: 5px;" required />
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary w-100" style="padding: 10px; font-size: 1.2rem; background-color: #3a86ff; border-color: #3a86ff; border-radius: 5px;">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

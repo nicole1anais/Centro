@@ -1,0 +1,64 @@
+﻿@model Centro.Models.Usuario
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Usuarios/Edit.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Editar Usuario</h1>
+        <hr />
+
+        <!-- Formulario -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="Edit" class="shadow p-4 rounded" style="background-color: #ffffff;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Rut" />
+
+                    <!-- Nombre -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <input asp-for="Nombre" class="form-control" />
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" name="Email" id="Email" class="form-control" />
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="form-group mb-3">
+                        <label for="Password" class="form-label">Contraseña</label>
+                        <input type="password" name="Password" id="Password" class="form-control" />
+                    </div>
+
+                    <!-- Rol -->
+                    <div class="form-group mb-3">
+                        <label for="Rol" class="form-label">Rol</label>
+                        <select name="Rol" id="Rol" class="form-control">
+                            <option value="Owner">Dueño</option>
+                            <option value="Administrador">Administrador</option>
+                        </select>
+                    </div>
+
+                    <!-- Bloqueo -->
+                    <div class="form-check mb-3">
+                        <input type="checkbox" name="isBlock" id="isBlock" class="form-check-input" />
+                        <label for="isBlock" class="form-check-label">¿Bloqueado?</label>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-success" style="font-family: 'Poppins', sans-serif;">Guardar Cambios</button>
+                        <a asp-action="Index" class="btn btn-secondary" style="font-family: 'Poppins', sans-serif;">Volver al Inicio</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

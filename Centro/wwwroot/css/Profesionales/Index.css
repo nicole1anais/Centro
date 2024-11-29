@@ -1,0 +1,157 @@
+﻿/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9; /* Fondo claro */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Texto oscuro */
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #444; /* Color neutro oscuro */
+    margin-bottom: 20px;
+}
+
+/* Botón de Volver al Mapa */
+.back-to-map-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    color: #3a86ff; /* Azul pastel */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+    .back-to-map-icon:hover {
+        color: #2f69c9; /* Azul más oscuro */
+        transform: scale(1.1); /* Efecto de zoom */
+    }
+
+/* Botón Crear Profesional */
+.btn-success {
+    font-size: 1.2rem;
+    background-color: #b9fbc0; /* Verde pastel */
+    border-color: #b9fbc0;
+    color: #333; /* Texto oscuro */
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+    .btn-success:hover {
+        background-color: #97e7a8; /* Verde más intenso */
+        border-color: #97e7a8;
+        color: #333;
+    }
+
+/* Tabla */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center;
+}
+
+    .table thead {
+        background-color: #d6d6d6; /* Gris claro */
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+        .table thead th {
+            padding: 15px;
+            color: #444; /* Texto neutro oscuro */
+            font-weight: 600;
+        }
+
+    .table tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f8f8f8; /* Fondo gris claro al pasar el cursor */
+        }
+
+    .table tbody td {
+        padding: 10px;
+        font-size: 0.95rem;
+        color: #333;
+        vertical-align: middle;
+    }
+
+        .table tbody td img {
+            max-width: 75px;
+            border-radius: 8px;
+        }
+
+/* Botones en la tabla */
+.btn-warning {
+    background-color: #b9fbc0; /* Verde pastel */
+    border-color: #b9fbc0;
+    color: #333; /* Texto oscuro */
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .btn-warning:hover {
+        background-color: #97e7a8; /* Amarillo más intenso */
+        border-color: #97e7a8;
+    }
+
+.btn-danger {
+    background-color: #fca5a5; /* Rojo pastel */
+    border-color: #fca5a5;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .btn-danger:hover {
+        background-color: #f87171; /* Rojo más intenso */
+        border-color: #f87171;
+        color: white;
+    }
+
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 5px 15px;
+}
+
+.btn-success.btn-sm {
+    background-color: #93c5fd; /* Azul pastel */
+    border-color: #93c5fd;
+    color: white;
+}
+
+    .btn-success.btn-sm:hover {
+        background-color: #60a5fa; /* Azul más intenso */
+        border-color: #60a5fa;
+        color: white;
+    }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .table thead th,
+    .table tbody td {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .btn-success {
+        font-size: 1rem;
+    }
+}

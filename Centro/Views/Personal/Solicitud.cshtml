@@ -1,0 +1,107 @@
+﻿@model Centro.Models.Citas
+
+<head>
+    <link rel="stylesheet" href="~/css/citas.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .boton-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<div class="owo" style="background-size: cover; background-repeat: no-repeat; background-position: center; padding: 20px; margin: 0; min-height: calc(100vh - 64px);">
+    <h2 class="text-center">Solicitar Cita</h2>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Create" method="post">
+                <label class="owo" for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" required>
+
+                <label class="owo" for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="form-control" required>
+
+                <label class="owo" for="rut">RUT:</label>
+                <input type="text" id="rut" name="rut" class="form-control" required placeholder="12.345.678-9">
+                <p class="error-message" id="rut-error-message"></p>
+
+                <label class="owo" for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" class="form-control" required>
+
+                <label class="owo" for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" class="form-control" required>
+
+                <div class="form-group">
+                    <label class="owo" for="EspecialidadId">Categoría de Especialidad:</label>
+                    <select name="EspecialidadId" id="especialidad" class="form-control" required>
+                        <option value="0">Seleccione la especialidad</option>
+                        @if (ViewBag.Categorias != null)
+                        {
+                            foreach (var categoria in ViewBag.Categorias)
+                            {
+                                <option value="@categoria.IdEspecialidad">@categoria.Nombre</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="">No hay categorías disponibles</option>
+                        }
+                    </select>
+                </div>
+
+                <label class="owo" for="ProfesionalesId">Profesionales Disponibles:</label>
+                <select id="ProfesionalesId" name="ProfesionalesId" class="form-control" required>
+                    <option value="0">Seleccione un profesional</option>
+                </select>
+
+                <label class="owo" for="fecha">Fecha preferida:</label>
+                <select name="Fecha" id="fecha" class="form-control" required>
+                    <option value="0">Seleccione una fecha</option>
+                </select>
+
+                <label class="owo" for="hora">Hora preferida:</label>
+                <select id="hora" name="hora" class="form-control" required>
+                    <option value="0">Seleccione una hora</option>
+                </select>
+
+                <div class="boton-container">
+                    <button id="botonEnviar" type="submit" class="btn btn-success btn-block">Solicitar Cita</button>
+                    <a href="/Personal/Infoprofesionales" class="btn btn-info">Inicio</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Obtener valores de especialidad y profesional de la URL
+        var especialidadId = new URLSearchParams(window.location.search).get('especialidadId');
+        var profesionalId = new URLSearchParams(window.location.search).get('profesionalId');
+
+        // Autocompletar el campo de especialidad
+        if (especialidadId) {
+            $('#especialidad').val(especialidadId).trigger('change');
+        }
+
+        // Autocompletar el campo de profesional una vez que se carguen los profesionales de la especialidad
+        if (profesionalId) {
+            $('#especialidad').change(function () {
+                setTimeout(function () {
+                    $('#ProfesionalesId').val(profesionalId);
+                }, 500); // Esperar medio segundo para asegurarse de que las opciones estén cargadas
+            });
+        }
+
+        // Código para cargar las horas y fechas sigue igual
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Los scripts originales siguen iguales para el manejo de fecha y horas -->

@@ -1,0 +1,116 @@
+/* Estilo del cuerpo */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    background-color: #f4f4f4; /* Color de fondo suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Colores personalizados */
+.bg-blue {
+    background-color: #192C30; /* Color oscuro */
+}
+
+.custom-color {
+    background-color: #E7CBA9; /* Color suave de fondo */
+    border-color: #E7CBA9; /* Color de borde */
+}
+
+.custom-color2 {
+    background-color: #289C8E; /* Color suave de fondo */
+    border-color: #289C8E; /* Color de borde */
+}
+
+/* Estilo para las tarjetas */
+.card-body {
+    text-align: center;
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+.card {
+    border: none;
+    transition: box-shadow 0.3s; /* Efecto de sombra */
+}
+
+    .card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efecto de sombra al pasar el mouse */
+    }
+
+/* Estilo de la barra de progreso */
+.progress-bar {
+    background-color: #28a745; /* Color verde */
+}
+
+/* Estilo del footer */
+footer {
+    padding: 20px 0; /* Espaciado en el footer */
+}
+
+    footer img {
+        border-radius: 50%; /* Bordes redondeados para imágenes */
+        margin-bottom: 10px; /* Espaciado inferior */
+    }
+
+/* Estilo de encabezados */
+h2 {
+    color: #4B4B4B; /* Color de texto oscuro */
+}
+
+/* Estilo de etiquetas */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555; /* Color de texto */
+}
+
+/* Estilo de campos de entrada y selección */
+input,
+select {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espaciado inferior */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo de botones */
+button {
+    background-color: #4caf50; /* Color de fondo verde */
+    color: #fff; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+    button:hover {
+        background-color: #45a049; /* Color más oscuro al pasar el mouse */
+    }
+
+/* Estilo del navbar */
+.navbar-brand img {
+    border-radius: 50%; /* Bordes redondeados para imágenes */
+    margin-right: 10px; /* Espaciado a la derecha */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff; /* Color del icono del navbar */
+}
+
+.nav-link {
+    color: #fff !important; /* Color de texto de los enlaces */
+}
+
+.dropdown-item:active {
+    background-color: transparent; /* Fondo transparente al hacer clic */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .navbar-brand,
+    .navbar-toggler {
+        flex-direction: column; /* Colocar en columna en pantallas pequeñas */
+        align-items: center; /* Centrar al medio */
+    }
+}

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] GONU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+
+    <div class="">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Abrir dropdown al pasar el mouse sobre el enlace principal
+        document.querySelector('.nav-item.dropdown').addEventListener('mouseover', function () {
+            this.querySelector('.dropdown-menu').classList.add('show');
+        });
+
+        // Cerrar dropdown al quitar el mouse del área del dropdown
+        document.querySelector('.nav-item.dropdown').addEventListener('mouseleave', function () {
+            this.querySelector('.dropdown-menu').classList.remove('show');
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

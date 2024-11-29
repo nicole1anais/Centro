@@ -1,0 +1,101 @@
+﻿@model Centro.Models.Citas
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Citas/Solicitar.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h2 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Solicitar Cita</h2>
+
+        <!-- Formulario -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <form asp-action="Create" method="post" class="shadow p-4 rounded" style="background-color: #ffffff;">
+                    <!-- Nombre -->
+                    <div class="form-group mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group mb-3">
+                        <label for="apellido" class="form-label">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control" required>
+                    </div>
+
+                    <!-- RUT -->
+                    <div class="form-group mb-3">
+                        <label for="rut" class="form-label">RUT:</label>
+                        <input type="text" id="rut" name="rut" class="form-control" required placeholder="12.345.678-9">
+                        <p class="error-message text-danger" id="rut-error-message"></p>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="form-group mb-3">
+                        <label for="correo" class="form-label">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" class="form-control" required>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form-group mb-3">
+                        <label for="telefono" class="form-label">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-control" required>
+                    </div>
+
+                    <!-- Especialidad -->
+                    <div class="form-group mb-3">
+                        <label for="EspecialidadId" class="form-label">Categoría de Especialidad:</label>
+                        <select name="EspecialidadId" id="especialidad" class="form-control" required>
+                            <option value="0">Seleccione la especialidad</option>
+                            @if (ViewBag.Categorias != null)
+                            {
+                                foreach (var categoria in ViewBag.Categorias)
+                                {
+                                    <option value="@categoria.IdEspecialidad">@categoria.Nombre</option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="">No hay categorías disponibles</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Profesionales -->
+                    <div class="form-group mb-3">
+                        <label for="ProfesionalesId" class="form-label">Profesionales Disponibles:</label>
+                        <select id="ProfesionalesId" name="ProfesionalesId" class="form-control" required>
+                            <option value="0">Seleccione un profesional</option>
+                        </select>
+                    </div>
+
+                    <!-- Fecha -->
+                    <div class="form-group mb-3">
+                        <label for="fecha" class="form-label">Fecha preferida:</label>
+                        <select name="Fecha" id="fecha" class="form-control" required>
+                            <option value="0">Seleccione una fecha</option>
+                        </select>
+                    </div>
+
+                    <!-- Hora -->
+                    <div class="form-group mb-3">
+                        <label for="hora" class="form-label">Hora preferida:</label>
+                        <select id="hora" name="hora" class="form-control" required>
+                            <option value="0">Seleccione una hora</option>
+                        </select>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="/Home/Index" class="btn btn-info" style="font-family: 'Poppins', sans-serif;">Inicio</a>
+                        <button id="botonEnviar" type="submit" class="btn btn-success" style="font-family: 'Poppins', sans-serif;">Solicitar Cita</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

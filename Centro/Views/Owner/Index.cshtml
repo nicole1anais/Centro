@@ -1,0 +1,112 @@
+﻿@{
+}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h1>Index Dueño</h1>
+
+<div>
+    <h3>@ViewBag.numDeCitasMes</h3>
+    <p>Numero de citas pedidas el ultimo mes</p>
+</div>
+
+<div>
+    <h3>@ViewBag.recaudadcionMes</h3>
+    <p>recaudado de citas el ultimo mes</p>
+</div>
+<div>
+    <h3>@ViewBag.numMedicos</h3>
+    <p>Numero de medicos</p>
+</div>
+
+<div style="width: 50%;">
+    <h3>Numero de Citas ultimos 3 meses</h3>
+    <canvas id="barChart"></canvas>
+</div>
+
+<div style="width: 50%;">
+    <h3>Citas por medicos</h3>
+    <canvas id="pieChart"></canvas>
+</div>
+<div style="width: 50%;">
+    <h3>Proyeccion de Ingresos por citas</h3>
+    <canvas id="lineChart"></canvas>
+</div>
+
+<script>
+    // Datos de ejemplo
+    var datosCitas = {
+        meses: ['Noviembre', 'Diciembre', 'Enero'],
+        citasPorMes: [0, 5, @ViewBag.numDeCitasMes]
+    };
+
+    var datosMedicos = {
+        medicos: @Html.Raw(Json.Serialize(ViewBag.nombresMedicos)),
+        citasPorMedico: @Html.Raw(Json.Serialize(ViewBag.citasPorMedico))
+        };
+    // Gráfico de barras
+    var ctxBar = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: datosCitas.meses,
+            datasets: [{
+                label: 'Citas en los últimos 3 meses',
+                data: datosCitas.citasPorMes,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Gráfico de torta
+    var ctxPie = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: datosMedicos.medicos,
+            datasets: [{
+                data: datosMedicos.citasPorMedico,
+                backgroundColor: ['red', 'green', 'blue']
+            }]
+        }
+    });
+
+    // Datos de ejemplo para la proyección
+    var datosProyeccion = {
+        meses: ['Noviembre', 'Diciembre', 'Enero'],
+        citasProyectadas: [0, @ViewBag.recaudadcionMes + 50000, @ViewBag.recaudadcionMes + 75000] // Ajusta estos valores según la proyección deseada
+    };
+
+    // Gráfico de línea
+    var ctxLine = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: datosProyeccion.meses,
+            datasets: [{
+                label: 'Proyección de ingresos por citas',
+                data: datosProyeccion.citasProyectadas,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>

@@ -1,0 +1,51 @@
+﻿@model Centro.Models.Usuario
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Usuarios/Delete.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Eliminar Usuario</h1>
+        <h3 class="text-center text-danger" style="font-family: 'Poppins', sans-serif;">¿Está seguro de eliminar este usuario?</h3>
+        <hr />
+
+        <!-- Tabla de Datos -->
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered shadow-sm">
+                <thead style="background-color: #ced4db;">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Datos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Nombre)</td>
+                        <td>@Html.DisplayFor(model => model.Nombre)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Email)</td>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Rol)</td>
+                        <td>@Html.DisplayFor(model => model.Rol)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-between mt-4">
+            <form asp-action="Delete" onsubmit="return confirm('¿Está seguro de eliminar este usuario? Esta acción no se puede deshacer.');">
+                <input type="hidden" asp-for="Rut" />
+                <button type="submit" class="btn btn-danger" style="font-family: 'Poppins', sans-serif;">Eliminar</button>
+            </form>
+            <a asp-action="Index" class="btn btn-secondary" style="font-family: 'Poppins', sans-serif;">Volver al Inicio</a>
+        </div>
+    </div>
+</body>

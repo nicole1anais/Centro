@@ -1,0 +1,63 @@
+﻿/* Fondo blanco para toda la página */
+body {
+    background-color: #FFFFFF;
+}
+
+/* Estilos generales */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #6F4C3E; /* Color para títulos */
+    text-align: center;
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    color: #000000; /* Fuente color negro */
+    line-height: 1.6;
+}
+
+/* Estilo de las tarjetas */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #F8BBD0; /* Color pastel frambuesa */
+    border-radius: 10px;
+}
+
+/* Estilo de las imágenes */
+.img-fluid {
+    border-radius: 10px;
+}
+
+/* Estilo de las secciones */
+.container h1 {
+    margin-bottom: 20px;
+    color: #6F4C3E; /* Títulos en marrón */
+}
+
+.card-body h5 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    color: #6F4C3E; /* Color marrón para subtítulos */
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    color: #000000; /* Texto color negro */
+}
+
+/* Añadir margen entre las secciones */
+.container {
+    margin-bottom: 50px;
+}
+
+/* Hover para imágenes */
+.img-fluid:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}

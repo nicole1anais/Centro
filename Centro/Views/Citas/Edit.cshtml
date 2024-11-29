@@ -1,0 +1,97 @@
+﻿@model Centro.Models.Citas
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Citas/Edit.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Editar Citas</h1>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <!-- Formulario -->
+                <form asp-action="Edit" class="shadow p-4 rounded" style="background-color: #ffffff;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <!-- Rut -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Rut" class="form-label">Rut</label>
+                        <input asp-for="Rut" class="form-control" />
+                        <span asp-validation-for="Rut" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nombre -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre</label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <!-- Apellido -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Apellido" class="form-label">Apellido</label>
+                        <input asp-for="Apellido" class="form-control" />
+                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                    </div>
+
+                    <!-- Correo -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Correo" class="form-label">Correo</label>
+                        <input asp-for="Correo" class="form-control" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Telefono" class="form-label">Teléfono</label>
+                        <input asp-for="Telefono" class="form-control" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+
+                    <!-- Fecha -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Fecha" class="form-label">Fecha</label>
+                        <input asp-for="Fecha" class="form-control" type="date" />
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+
+                    <!-- Hora -->
+                    <div class="form-group mb-3">
+                        <label asp-for="Hora" class="form-label">Hora</label>
+                        <input asp-for="Hora" class="form-control" type="time" />
+                        <span asp-validation-for="Hora" class="text-danger"></span>
+                    </div>
+
+                    <!-- Especialidad -->
+                    <div class="form-group mb-3">
+                        <label asp-for="EspecialidadId" class="form-label">Especialidad</label>
+                        <select asp-for="EspecialidadId" class="form-control" asp-items="ViewBag.Especialidades"></select>
+                        <span asp-validation-for="EspecialidadId" class="text-danger"></span>
+                    </div>
+
+                    <!-- Profesional -->
+                    <div class="form-group mb-3">
+                        <label asp-for="ProfesionalesId" class="form-label">Profesional</label>
+                        <select asp-for="ProfesionalesId" class="form-control" asp-items="ViewBag.Profesionales"></select>
+                        <span asp-validation-for="ProfesionalesId" class="text-danger"></span>
+                    </div>
+
+                    <!-- Botón Guardar -->
+                    <div class="form-group text-center mt-4">
+                        <input type="submit" value="Guardar Cambios" class="btn btn-success" style="font-family: 'Poppins', sans-serif;" />
+                    </div>
+                </form>
+
+                <!-- Botón Volver -->
+                <div class="text-center mt-4">
+                    <a class="btn btn-secondary" asp-action="List" style="font-family: 'Poppins', sans-serif;">Volver al Inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

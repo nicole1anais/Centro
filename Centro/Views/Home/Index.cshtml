@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa de Profesionales</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="~/css/Home/home.css" />
+</head>
+<body>
+
+    <div class="button-container">
+        <button class="contact-button" onclick="location.href='/Contacto/Index'">Contáctanos</button>
+        <button class="login-button" onclick="location.href='/Auth/Login'">Iniciar Sesión</button>
+    </div>
+
+
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inicializar el mapa
+        var map = L.map('map').setView([-34.9822, -71.2408], 13); // Centrado en Curicó, Chile
+
+        // Cargar mapa base
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Obtener los datos de los profesionales desde el backend
+        fetch('/Profesionales/GetProfesionales')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(prof => {
+                    // Crear marcador
+                    var marker = L.marker([prof.latitud, prof.longitud]).addTo(map);
+
+                    // Contenido del popup
+                    var popupContent = `
+                            <div class="popup-content">
+            <img src="${prof.imagen}" alt="${prof.nombre}" />
+            <h3>${prof.nombre}</h3>
+            <p>Especialidad: ${prof.especialidad}</p>
+            <p>Contacto: ${prof.email}</p>
+            <button onclick="pedirHora(${prof.id})">Pedir Cita</button>
+        </div>
+                    `;
+
+                    // Asignar popup al marcador
+                    marker.bindPopup(popupContent);
+                });
+            });
+
+        // Función para redirigir al usuario a la página de reserva
+        function pedirHora(idProfesional) {
+            window.location.href = `/Citas/Solicitud/${idProfesional}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/citas.css" asp-append-version="true" />
+</head>
+
+@if (ViewData.ContainsKey("AutorizacionTemporal") && (bool)ViewData["AutorizacionTemporal"])
+{
+    <div class="notification-container">
+        <h1>¡Su hora fue agendada con éxito!</h1>
+        <div id="result">La operación se realizó con éxito.</div>
+        <a class="button" asp-action="Boleta" asp-route-id="@ViewBag.cod">Ver boleta</a>
+    </div>
+}

@@ -1,0 +1,74 @@
+﻿@model Centro.Models.Citas
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Citas/Delete.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #3a3a3a;">Eliminar Cita</h1>
+        <h3 class="text-center text-danger" style="font-family: 'Poppins', sans-serif;">¿Está seguro de que desea eliminar esta cita?</h3>
+
+        <!-- Tabla de Detalles -->
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered shadow-sm">
+                <thead style="background-color: #ced4db;">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Datos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Rut)</td>
+                        <td>@Html.DisplayFor(model => model.Rut)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Nombre)</td>
+                        <td>@Html.DisplayFor(model => model.Nombre)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Apellido)</td>
+                        <td>@Html.DisplayFor(model => model.Apellido)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Correo)</td>
+                        <td>@Html.DisplayFor(model => model.Correo)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Telefono)</td>
+                        <td>@Html.DisplayFor(model => model.Telefono)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Fecha)</td>
+                        <td>@Html.DisplayFor(model => model.Fecha)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Hora)</td>
+                        <td>@Html.DisplayFor(model => model.Hora)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.EspecialidadId)</td>
+                        <td>@Html.DisplayFor(model => model.EspecialidadId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.ProfesionalesId)</td>
+                        <td>@Html.DisplayFor(model => model.ProfesionalesId)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-between mt-4">
+            <form asp-action="Delete" onsubmit="return confirm('¿Estás seguro de eliminar esta cita? Esta acción no se puede deshacer.');">
+                <input type="hidden" asp-for="Correo" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" style="font-family: 'Poppins', sans-serif;" />
+            </form>
+            <a asp-action="List" class="btn btn-secondary" style="font-family: 'Poppins', sans-serif;">Volver al Inicio</a>
+        </div>
+    </div>
+</body>

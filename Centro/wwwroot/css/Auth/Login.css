@@ -1,0 +1,16 @@
+﻿/* Botón de Volver al Mapa */
+.back-to-map-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    color: #3a86ff; /* Azul pastel */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+    .back-to-map-icon:hover {
+        color: #2f69c9; /* Azul más oscuro */
+        transform: scale(1.1); /* Efecto de zoom */
+    }

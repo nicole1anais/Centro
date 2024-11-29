@@ -1,0 +1,110 @@
+﻿/* Estilos generales */
+body {
+    background-color: #FFFFFF; /* Fondo blanco */
+    font-family: 'Arial', sans-serif; /* Fuente moderna */
+    color: #000000; /* Texto negro */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px; /* Limitar el ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 20px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333; /* Color negro oscuro */
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Tarjetas de los profesionales */
+.card {
+    background-color: #FFF9C4; /* Color Piña */
+    border: none; /* Sin borde */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación */
+}
+
+    .card:hover {
+        transform: scale(1.05); /* Efecto de aumento al pasar sobre la tarjeta */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+    }
+
+/* Imagen de los profesionales */
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 15px;
+    background-color: #f5edf0; /* Color Frambuesa */
+    text-align: center;
+}
+
+/* Título del profesional */
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Texto dentro de la tarjeta */
+.card-text {
+    font-size: 1.1em;
+    color: #555; /* Gris oscuro para el texto */
+}
+
+/* Estilo de filas */
+.row {
+    margin-bottom: 30px;
+}
+
+/* Botones de ejemplo, si se requieren */
+.btn {
+    background-color: #2ecc71; /* Color del botón */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn:hover {
+        background-color: #27ae60; /* Color del botón al pasar sobre él */
+    }
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-text {
+        font-size: 1em;
+    }
+}
+
+/* Estilo del botón de volver */
+.btn-volver {
+    background-color: #3498db; /* Color del botón (Azul) */
+    color: white; /* Texto blanco */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-volver:hover {
+        background-color: #2980b9; /* Color más oscuro cuando se pasa el ratón */
+    }

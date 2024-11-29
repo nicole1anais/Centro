@@ -1,0 +1,91 @@
+﻿/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9; /* Fondo claro */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Texto oscuro */
+}
+
+h1, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #444; /* Color neutro oscuro */
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #d9534f; /* Rojo para resaltar el mensaje */
+}
+
+/* Tabla */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: left;
+}
+
+    .table thead {
+        background-color: #d6d6d6; /* Gris claro */
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+        .table thead th {
+            padding: 15px;
+            color: #444; /* Texto oscuro */
+            font-weight: 600;
+        }
+
+    .table tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f8f8f8; /* Fondo gris claro al pasar el cursor */
+        }
+
+    .table tbody td {
+        padding: 10px;
+        font-size: 0.95rem;
+        color: #333;
+        vertical-align: middle;
+    }
+
+/* Botones */
+.btn-danger {
+    background-color: #fca5a5; /* Rojo pastel */
+    border-color: #fca5a5;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .btn-danger:hover {
+        background-color: #f87171; /* Rojo más intenso */
+        border-color: #f87171;
+    }
+
+.btn-secondary {
+    background-color: #ced4da; /* Gris claro */
+    border-color: #ced4da;
+    color: #333; /* Texto oscuro */
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+    .btn-secondary:hover {
+        background-color: #adb5bd; /* Gris más oscuro */
+        border-color: #adb5bd;
+    }

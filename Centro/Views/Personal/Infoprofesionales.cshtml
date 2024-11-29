@@ -1,0 +1,42 @@
+﻿@model List<Profesionales>
+
+<link rel="stylesheet" href="~/css/infoprofesionales.css" asp-append-version="true" />
+
+<div class="container mt-5">
+    <h1 class="text-center">Nuestros Profesionales</h1>
+</div>
+
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@item.Imagen" class="card-img-top w-1 h-1" alt="@item.Nombre" width="150" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title fs-8">@item.Nombre</h5>
+                        <p class="card-text fs-9">@item.Especialidad.Nombre</p>
+                        <p class="card-text fs-9">@item.SedeEgreso</p>
+                        <p class="card-text fs-9">@item.Diplomados</p>
+
+                        <!-- Botón para solicitar horas, pasando especialidadId y profesionalId -->
+                        <p>
+                            <a class="btn btn-primary mt-3" style="background-color: #2ecc71; border: none;"
+                               asp-action="Solicitud"
+                               asp-controller="Citas"
+                               asp-route-especialidadId="@item.EspecialidadId"
+                               asp-route-profesionalId="@item.Id">
+                                Crear Cita
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Botón para volver -->
+<div class="container text-center mt-4">
+    <a href="~/Home/Index" class="btn btn-volver">Volver al Inicio</a>
+</div>

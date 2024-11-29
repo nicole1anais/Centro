@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Centro.Models.Contacto>
+
+@{
+}
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Contactos/Index.css" asp-append-version="true" />
+</head>
+
+<div class="container mt-5">
+
+    <!-- Botón de Volver al Mapa -->
+    <a href="/Home/Index" class="back-to-map-icon">
+        <i class="bi bi-arrow-left-circle-fill"></i>
+    </a>
+
+    <!-- Encabezado -->
+    <div class="container text-center" style="border-top: solid 5px #f9f9f9; /* Frambuesa */">
+        <h1 class="text-center mb-4" style="font-family: 'Poppins', sans-serif;">Comunícate con Nosotros</h1>
+    </div>
+
+    <!-- Formulario -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Enviar" asp-controller="Contacto" class="shadow p-4 rounded" style="background-color: #fff;">
+                <!-- Nombre -->
+                <div class="mb-3">
+                    <label for="nombre" class="form-label" style="font-family: 'Poppins', sans-serif;">Nombre</label>
+                    <input required type="text" class="form-control" id="nombre" name="Nombre" aria-describedby="nombreHelp" style="font-family: 'Poppins', sans-serif;">
+                </div>
+
+                <!-- Correo Electrónico -->
+                <div class="mb-3">
+                    <label for="correo" class="form-label" style="font-family: 'Poppins', sans-serif;">Correo Electrónico</label>
+                    <input required type="email" class="form-control" id="correo" name="Email" aria-describedby="correoHelp" style="font-family: 'Poppins', sans-serif;">
+                </div>
+
+                <!-- Mensaje -->
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label" style="font-family: 'Poppins', sans-serif;">Mensaje</label>
+                    <textarea required class="form-control" id="mensaje" name="Mensaje" style="height: 150px; font-family: 'Poppins', sans-serif;"></textarea>
+                </div>
+
+                <!-- Botones -->
+                <div class="d-flex justify-content-between">
+                    <a href="/Administrador/Index" class="btn btn-info" style="font-family: 'Poppins', sans-serif;">Volver a Inicio</a>
+                    <button type="submit" class="btn btn-success" style="font-family: 'Poppins', sans-serif;">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

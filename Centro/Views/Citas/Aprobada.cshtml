@@ -1,0 +1,17 @@
+﻿@{
+}
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Citas/Notificacion.css" asp-append-version="true" />
+</head>
+
+@if (ViewData.ContainsKey("AutorizacionTemporal") && (bool)ViewData["AutorizacionTemporal"])
+{
+    <div class="notification-container">
+        <h1 class="notification-title">¡Su hora fue agendada con éxito!</h1>
+        <p class="notification-message">La operación se realizó con éxito.</p>
+        <a class="button" asp-action="Boleta" asp-route-id="@ViewBag.cod">Ver boleta</a>
+    </div>
+}

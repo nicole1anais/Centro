@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Centro.Models.Usuario>
+
+<head>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Usuarios/List.css" asp-append-version="true" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+
+        <!-- Botón de Volver al Mapa -->
+        <a href="/Administrador/Index" class="back-to-map-icon">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
+
+        <h1 class="text-center">Usuarios</h1>
+
+        @if (TempData["Mensaje"] != null)
+        {
+            <script>
+                alert('@TempData["Mensaje"]');
+            </script>
+        }
+
+        <!-- Botón Crear Nuevo -->
+        <div class="text-center mb-3">
+            <a class="btn btn-success" asp-action="Create">Crear Usuario</a>
+        </div>
+
+        <!-- Tabla -->
+        <table class="table table-bordered table-hover text-center shadow-sm">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Rol)</td>
+                        <td>
+                            <a class="btn btn-success btn-sm" asp-action="Details" asp-route-id="@item.Rut">Detalles</a>
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Rut">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

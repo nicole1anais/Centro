@@ -1,0 +1,40 @@
+﻿body {
+    background-color: #FFFFFF; /* Fondo blanco */
+    font-family: 'Arial', sans-serif; /* Fuente principal */
+}
+
+h1 {
+    color: #000000; /* Color del título */
+}
+
+.table {
+    margin: 20px 0;
+}
+
+    .table th, .table td {
+        text-align: center; /* Centrar texto en las celdas */
+    }
+
+    .table th {
+        background-color: #ced4db; /* Color del encabezado */
+    }
+
+.btn {
+    display: flex;
+    flex-direction: column; /* Ordenar en columnas */
+    align-items: center; /* Centrar los botones horizontalmente */
+    margin: 5px 0; /* Espacio entre los botones */
+
+    padding: 10px 20px; /* Espaciado del botón */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    color: white; /* Color del texto en el botón */
+}
+
+.q {
+    background-color: #2ecc71; /* Color botón Crear cita */
+}
+
+.w {
+    background-color: #3498db; /* Color botón Volver al Inicio */
+}
